@@ -1,0 +1,22 @@
+{% load on_reviews %}
+{% on_reviews obj as on_reviews_boolean %}
+
+{% if on_reviews_boolean %}
+  <form class="flex flex-col justify-center align-center p-4 rounded-lg" action="{% url "reviews:add" obj.pk %}?kind={{kind}}" method="POST">
+    {% csrf_token %}
+    <button class="ml-5 bg-blue-400 hover:bg-blue-600 text-white font-bold my-4 py-2 px-4 rounded">
+      Delete my Review
+    </button>
+  </form>
+  
+
+{% else %}
+  <form class=" flex flex-col justify-center align-center border-2 p-4 rounded-lg" action="{% url "reviews:add" obj.pk %}?kind={{kind}}" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button class="w-2/5 ml-5 bg-blue-400 hover:bg-blue-600 text-white font-bold mt-4 py-2 px-4 rounded" >
+      Save
+    </button>
+  </form>
+  
+{% endif %}
