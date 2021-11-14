@@ -1,11 +1,18 @@
-  <header class="flex justify-around bg-blue-400 text-white py-4">
-    <a href="{% url 'core:home' %}">Home</a>
-    <a href="{% url 'core:search' %}">Search</a>
-    {% if user.is_authenticated %}
-      <a href="{% url 'users:logout' %}">Log Out</a>
-      <a href="{% url 'users:profile' user.pk %}">My Profile</a>
-    {% else %}
-      <a href="{% url 'users:login' %}">Log In</a>
-      <a href="{% url 'users:signup' %}">Sign Up</a>
-    {% endif %}
+{% load static i18n %}
+<header class="flex justify-between items-center bg-blue-400 w-full text-white">
+  <div class="flex items-center">
+    <a class="w-24" href="{% url 'core:home' %}">
+      <img class ="w-28px" src="{% static 'img/WJ_MEDIA.gif' %}" alt=""/>
+    </a>
+    <a class="pl-16" href="{% url 'core:search' %}">Search</a>
+  </div>
+    <div class="pr-28">
+      {% if user.is_authenticated %}
+        <a class="pr-16" href="{% url 'users:logout' %}">Log Out</a>
+        <a class="pr-16" href="{% url 'users:profile' user.pk %}">My Profile</a>
+      {% else %}
+        <a class="pr-16" href="{% url 'users:login' %}">Log In</a>
+        <a class="pr-16" href="{% url 'users:signup' %}">Sign Up</a>
+      {% endif %}
+    </div>
   </header>
