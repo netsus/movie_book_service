@@ -1,18 +1,18 @@
 {% load static i18n %}
-<header class="flex justify-between items-center bg-blue-400 w-full text-white">
+<header class="flex justify-between items-center bg-gray-500 w-full h-32 text-white">
   <div class="flex items-center">
-    <a class="w-24" href="{% url 'core:home' %}">
-      <img class ="w-28px" src="{% static 'img/WJ_MEDIA.gif' %}" alt=""/>
+    <a class="w-32" href="{% url 'core:home' %}">
+      <img class ="w-32" src="{% static 'img/WJ_MEDIA.gif' %}" alt=""/>
     </a>
-    <a class="pl-16" href="{% url 'core:search' %}">Search</a>
+    <a class="pl-16 text-2xl" href="{% url 'core:search' %}">Search</a>
   </div>
     <div class="pr-28">
       {% if user.is_authenticated %}
-        <a class="pr-16" href="{% url 'users:logout' %}">Log Out</a>
-        <a class="pr-16" href="{% url 'users:profile' user.pk %}">My Profile</a>
+        <a class="pr-16 text-2xl" href="{% url 'users:logout' %}">Log Out</a>
+        <a class="pr-16 text-2xl" href="{% url 'users:profile' user.pk %}">My Profile</a>
       {% else %}
-        <a class="pr-16" href="{% url 'users:login' %}">Log In</a>
-        <a class="pr-16" href="{% url 'users:signup' %}">Sign Up</a>
+        <a class="pr-16 text-2xl" href="{% url 'users:login' %}">Log In</a>
+        <a class="pr-16 text-2xl" href="{% url 'users:signup' %}">Sign Up</a>
       {% endif %}
     </div>
   </header>
