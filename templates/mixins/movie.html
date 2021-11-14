@@ -1,4 +1,7 @@
-<div class="h-48 rounded shadow-lg p-2">
-  <h3 class="text-gray-900 text-base mb-2"><a href="{% url 'movies:movie' movie.pk %}">{{movie.title}}</a></h3>
-  <h5 class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{movie.year}}</h5>
+<div class="flex h-48 rounded shadow-lg p-2">
+  <div class="flex-col pl-10">
+    <h3 class="text-blue-600 text-base mb-2 text-xl"><a href="{% url 'movies:movie' movie.pk %}">{{movie.title}}</a></h3>
+    <h5 class="mt-20 inline-block bg-gray-200 rounded-full px-3 py-1 text-l font-semibold text-gray-700 mr-2 mb-2">{{movie.year}}</h5>
+  </div>
+  <img class="w-28 pl-12" src="{{movie.cover_image.url}}" alt="">
 </div>
